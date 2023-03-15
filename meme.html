@@ -8,12 +8,9 @@
   <body>
     <div class="container">
       <div class="meme-con">
-        
         <div class="overlay">
-          <div class="top-text overlay"></div>
-          <div class="bottom-text"></div>
-        <div class="right-top"></div>
-        <div class="right-bottom"></div>
+          <div class="top-text overlay" contenteditable></div>
+          <div class="bottom-text" contenteditable></div>
         </div>
       </div>
       <form>
@@ -23,18 +20,13 @@
         <label for="bottom-text">Bottom Text:</label>
         <input type="text" id="bottom-text" name="bottom-text" /><br />
 
-        <label for="right-top-text">Right Top Text:</label>
-        <input type="text" id="right-top-text" name="right-top-text" /><br />
+        <!-- color picker -->
+        <label for="color-picker">Color:</label>
+        <input type="color" id="color-picker">
 
-        <label for="right-bottom-text">Right Bottom Text:</label>
-        <input
-          type="text"
-          id="right-bottom-text"
-          name="right-bottom-text"
-        /><br />
+        <br />
+        <br />
       </form>
-
-      <!-- The top and bottom text will be displayed here -->
     </div>
     <script src="js/logic.js"></script>
     <script src="js/dom.js"></script>

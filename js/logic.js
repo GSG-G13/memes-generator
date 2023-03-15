@@ -117,10 +117,52 @@ const searchMeme = (array, value) => {
 };
 
 const searchInput = document.querySelector(".search-feild");
-console.log();
+if (searchInput != null) {
+  searchInput.addEventListener("input", (e) => {
+    console.log(e.target.value);
+    let array = searchMeme(testArray, searchInput.value);
+    console.log(array);
+  });
+} //
 
-searchInput.addEventListener("input", (e) => {
-  console.log(e.target.value);
-  let array = searchMeme(testArray, searchInput.value);
-  console.log(array);
-});
+const overlay = document.querySelector(".overlay");
+let activeElement = null;
+let initialX = 0;
+let initialY = 0;
+let currentX = 0;
+let currentY = 0;
+let xOffset = 0;
+let yOffset = 0;
+
+overlay.addEventListener("mousedown", startDrag);
+overlay.addEventListener("mouseup", endDrag);
+overlay.addEventListener("mousemove", drag);
+
+function startDrag(event) {
+  activeElement = event.target;
+  initialX = event.clientX - xOffset;
+  initialY = event.clientY - yOffset;
+  if (activeElement !== null) {
+    activeElement.style.cursor = "move";
+  }
+}
+
+function endDrag(event) {
+  initialX = currentX;
+  initialY = currentY;
+  activeElement.style.cursor = "default";
+  activeElement = null;
+}
+
+function drag(event) {
+  if (activeElement !== null) {
+    event.preventDefault();
+    currentX = event.clientX - initialX;
+    currentY = event.clientY - initialY;
+
+    xOffset = currentX;
+    yOffset = currentY;
+
+    activeElement.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+  }
+}

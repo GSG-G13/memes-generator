@@ -82,9 +82,12 @@ addListener("#top-text", "input", () => {
 addListener("#bottom-text", "input", () => {
   changeValue(bottomTextElement, bottomText.value);
 });
-addListener("#right-top-text", "input", () => {
-  changeValue(rightTop, rightTopText.value);
-});
-addListener("#right-bottom-text", "input", () => {
-  changeValue(rightBottom, rightBottomText.value);
+
+const colorPicker = document.getElementById('color-picker');
+
+
+if(colorPicker != null)colorPicker.addEventListener('input', function() {
+  const color = colorPicker.value;
+  topTextElement.style.color = color;
+  bottomTextElement.style.color = color;
 });
