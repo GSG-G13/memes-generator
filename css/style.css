@@ -99,6 +99,22 @@ header .random-joke {
     color: green;
     font-weight: bold;
 }
+section .search-input{
+  display: flex;
+  justify-content:space-evenly;
+  width: 80%;
+  margin: 90px;
+}
+section .search-input .search-feild{
+  width: 80%;
+  padding: 10px;
+}
+section .search-input .search-btn{
+  width: 7%;
+}
+section .search-input .search-btn i {
+  width: 100%;
+}
 .cards {
     display: flex;
     flex-wrap: wrap;
