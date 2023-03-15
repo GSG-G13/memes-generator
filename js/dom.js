@@ -2,34 +2,40 @@ const addListener = (selector, eventName, callback) => {
   document.querySelector(selector).addEventListener(eventName, callback);
 };
 
-const getElementwithId = (id) => {
+const getElementById = (id) => {
   const element = document.getElementById(id);
   return element;
 };
 
-const topText = document.getElementById("top-text");
-const bottomText = document.getElementById("bottom-text");
-const rightTop = document.querySelector(".right-top");
-const rightBottom = document.querySelector(".right-bottom");
-const rightTopText = document.getElementById("right-top-text");
-const rightBottomText = document.getElementById("right-bottom-text");
+const querySelector = (query) => {
+  const element = document.querySelector(query);
+  return element;
+};
 
-const memeContainer = document.querySelector(".overlay");
-const topTextElement = memeContainer.querySelector(".top-text");
-const bottomTextElement = memeContainer.querySelector(".bottom-text");
+const topText = getElementById("top-text");
+const bottomText = getElementById("bottom-text");
+const rightTop = querySelector(".right-top");
+const rightBottom = querySelector(".right-bottom");
+const rightTopText = getElementById("right-top-text");
+const rightBottomText = getElementById("right-bottom-text");
 
-topText.addEventListener("input", () => {
-  topTextElement.textContent = topText.value;
+const memeContainer = querySelector(".overlay");
+const topTextElement = querySelector(".top-text");
+const bottomTextElement = querySelector(".bottom-text");
+
+const changeValue = (element, text) => {
+  element.textContent = text;
+};
+
+addListener("#top-text", "input", () => {
+  changeValue(topTextElement, topText.value);
 });
-
-bottomText.addEventListener("input", () => {
-  bottomTextElement.textContent = bottomText.value;
+addListener("#bottom-text", "input", () => {
+  changeValue(bottomTextElement, bottomText.value);
 });
-
-rightTopText.addEventListener("input", () => {
-  rightTop.textContent = rightTopText.value;
+addListener("#right-top-text", "input", () => {
+  changeValue(rightTop, rightTopText.value);
 });
-
-rightBottomText.addEventListener("input", () => {
-  rightBottom.textContent = rightBottomText.value;
+addListener("#right-bottom-text", "input", () => {
+  changeValue(rightBottom, rightBottomText.value);
 });
