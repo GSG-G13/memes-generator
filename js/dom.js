@@ -70,14 +70,13 @@ const obj = {
   box_count: 2,
   captions: 0,
 };
-const cb = () => {
-};
+const cb = () => {};
 
 const card = createCard(obj, cb);
 if (cards != null) cards.appendChild(card);
 
 addListener("#top-text", "input", () => {
-    console.log(topText.value);
+  console.log(topText.value);
   changeValue(topTextElement, topText.value);
 });
 addListener("#bottom-text", "input", () => {
