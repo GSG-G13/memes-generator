@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing : border-box;
 }
-header {
+header{
     margin: 90px;
     border: solid 5px black;
     padding: 30px;
@@ -12,11 +12,11 @@ header {
     justify-content: space-around;
     width: 60%;
 }
-.headline{
+header .headline{
     color: red;
     text-transform: capitalize;
 }
-header p {
+header .random-joke {
     color: green;
     font-weight: bold;
 }
@@ -54,7 +54,7 @@ header p {
     font-weight: bold;
 }
 
-button {
+.add-button {
     margin-top: 10px;
     background-color: #007bff;
     color: white;
@@ -65,7 +65,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.add-button:hover {
     background-color: #0069d9;
 }
 
