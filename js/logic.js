@@ -19,7 +19,7 @@ const render = (res) => {
   res.forEach((obj) => {
     const card = createCard(obj, () => {
       const url = `meme.html?id=${obj.id}`;
-      window.location.assign(url);
+      window.location.href(url);
     });
     if (cards != null) cards.appendChild(card);
   });
