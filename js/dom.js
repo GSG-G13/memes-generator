@@ -22,6 +22,7 @@ const rightBottomText = getElementById("right-bottom-text");
 const memeContainer = querySelector(".overlay");
 const topTextElement = querySelector(".top-text");
 const bottomTextElement = querySelector(".bottom-text");
+const textJoke = document.querySelector("header .random-joke");
 
 const changeValue = (element, text) => {
   element.textContent = text;
