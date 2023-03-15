@@ -1,0 +1,72 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing : border-box;
+}
+header {
+    margin: 90px;
+    border: solid 5px black;
+    padding: 30px;
+    display:  flex;
+    -ms-flex-align: center;
+    justify-content: space-around;
+    width: 60%;
+}
+header h1 {
+    color: red;
+    text-transform: capitalize;
+}
+header p {
+    color: green;
+    font-weight: bold;
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 300px;
+}
+.image-container {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+.meme-caption {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+button {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0069d9;
+}
+
+
