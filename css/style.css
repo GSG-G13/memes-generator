@@ -16,7 +16,7 @@
   position: relative;
   overflow: hidden;
   z-index: 99;
-  color: #a1a0a0;
+  color: #ddd;
   font-size: 36px;
   text-shadow: 2px 2px black;
 }
@@ -31,7 +31,7 @@
   height: 500px;
   background: transparent;
   position: absolute;
-  color: white;
+  color: rgb(102, 101, 101);
   font-size: 36px;
   text-shadow: 2px 2px black;
   top: 0;
