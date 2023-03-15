@@ -1,8 +1,8 @@
 const fetch = (url, cb) => {
-  let xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4 && xhr.status == 200) {
-      let response = JSON.parse(xhr.responseText);
+      const response = JSON.parse(xhr.responseText);
       cb(response);
     }
   };
@@ -11,8 +11,11 @@ const fetch = (url, cb) => {
 };
 
 fetch("https://geek-jokes.sameerkumar.website/api?format=json", (response) => {
-  let joke = response.joke;
+  const joke = response.joke;
   textJoke.textContent = joke;
 });
 
-
+fetch("https://api.imgflip.com/get_memes", (response) => {
+  const res = response.data.memes;
+  console.log(res);
+});
