@@ -41,13 +41,13 @@ const filterById = (res, idd) => {
 const memeCon = document.querySelector(".meme-con");
 fetch(`https://api.imgflip.com/get_memes`, (response) => {
   const res = response.data.memes;
+  const img = document.createElement("img");
   const obj = filterById(res, id);
-  const img = `<img
-  src="${obj[0].url}"
-  alt="meme"
-  class="meme-img"
-/>`;
-  memeCon.innerHTML += img;
 
-  console.log(`ID is: ${id}`);
+  img.setAttribute("src", `${obj[0].url}`);
+  console.log(obj[0].url);
+  img.setAttribute("alt", "meme");
+  img.setAttribute("width", "500");
+  img.setAttribute("height", "500");
+  memeCon.appendChild(img);
 });

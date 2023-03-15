@@ -78,8 +78,8 @@ const card = createCard(obj, cb);
 if (cards != null) cards.appendChild(card);
 
 addListener("#top-text", "input", () => {
+    console.log(topText.value);
   changeValue(topTextElement, topText.value);
-  console.log(topText.value);
 });
 addListener("#bottom-text", "input", () => {
   changeValue(bottomTextElement, bottomText.value);
