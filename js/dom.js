@@ -71,7 +71,6 @@ const obj = {
   captions: 0,
 };
 const cb = () => {
-  console.log("Hello meme");
 };
 
 const card = createCard(obj, cb);
