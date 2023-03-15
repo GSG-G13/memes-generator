@@ -1,0 +1,1 @@
+const textJoke = document.querySelector("header .random-joke")
