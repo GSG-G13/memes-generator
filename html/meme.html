@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meme Generator</title>
+    <style></style>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="meme-con">
+        <img
+          src="https://i.imgflip.com/1ur9b0.jpg"
+          alt="meme"
+          class="meme-img"
+        />
+        <div class="overlay">
+          <div class="top-text overlay"></div>
+          <div class="bottom-text"></div>
+        <div class="right-top"></div>
+        <div class="right-bottom"></div>
+        </div>
+      </div>
+      <form>
+        <label for="top-text">Top Text:</label>
+        <input type="text" id="top-text" name="top-text" /><br />
+
+        <label for="bottom-text">Bottom Text:</label>
+        <input type="text" id="bottom-text" name="bottom-text" /><br />
+
+        <label for="right-top-text">Right Top Text:</label>
+        <input type="text" id="right-top-text" name="right-top-text" /><br />
+
+        <label for="right-bottom-text">Right Bottom Text:</label>
+        <input
+          type="text"
+          id="right-bottom-text"
+          name="right-bottom-text"
+        /><br />
+      </form>
+
+      <!-- The top and bottom text will be displayed here -->
+    </div>
+    <script src="../js/dom.js"></script>
+  </body>
+</html>
