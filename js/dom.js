@@ -19,7 +19,6 @@ const rightTop = querySelector(".right-top");
 const rightBottom = querySelector(".right-bottom");
 const rightTopText = getElementById("right-top-text");
 const rightBottomText = getElementById("right-bottom-text");
-
 const memeContainer = querySelector(".overlay");
 const topTextElement = querySelector(".top-text");
 const bottomTextElement = querySelector(".bottom-text");
@@ -62,34 +61,6 @@ const createCard = (obj, cb) => {
 };
 
 const cards = document.querySelector(".cards");
-
-const fetch = (url, cb) => {
-  const xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      const response = JSON.parse(xhr.responseText);
-      cb(response);
-    }
-  };
-  xhr.open("GET", url, true);
-  xhr.send();
-};
-
-fetch("https://geek-jokes.sameerkumar.website/api?format=json", (response) => {
-  const joke = response.joke;
-  textJoke.textContent = joke;
-});
-
-fetch("https://api.imgflip.com/get_memes", (response) => {
-  const res = response.data.memes;
-  res.forEach((obj) => {
-    const card = createCard(obj, () => {
-      console.log("Hello meme");
-    });
-    cards.appendChild(card);
-  });
-});
-
 const obj = {
   id: "119139145",
   name: "Blank Nut Button",
@@ -108,6 +79,7 @@ if (cards != null) cards.appendChild(card);
 
 addListener("#top-text", "input", () => {
   changeValue(topTextElement, topText.value);
+  console.log(topText.value);
 });
 addListener("#bottom-text", "input", () => {
   changeValue(bottomTextElement, bottomText.value);

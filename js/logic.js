@@ -1,0 +1,53 @@
+const fetch = (url, cb) => {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      const response = JSON.parse(xhr.responseText);
+      cb(response);
+    }
+  };
+  xhr.open("GET", url, true);
+  xhr.send();
+};
+
+fetch("https://geek-jokes.sameerkumar.website/api?format=json", (response) => {
+  const joke = response.joke;
+  if (textJoke != null) textJoke.textContent = joke;
+});
+
+const render = (res) => {
+  res.forEach((obj) => {
+    const card = createCard(obj, () => {
+      const url = `meme.html?id=${obj.id}`;
+      window.location.assign(url);
+    });
+    if (cards != null) cards.appendChild(card);
+  });
+};
+
+fetch("https://api.imgflip.com/get_memes", (response) => {
+  const res = response.data.memes;
+  render(res);
+});
+
+const urlParams = new URLSearchParams(window.location.search);
+
+const id = urlParams.get("id");
+console.log(id);
+const filterById = (res, idd) => {
+  const filtered = res.filter((obj) => obj.id == idd);
+  return filtered;
+};
+const memeCon = document.querySelector(".meme-con");
+fetch(`https://api.imgflip.com/get_memes`, (response) => {
+  const res = response.data.memes;
+  const obj = filterById(res, id);
+  const img = `<img
+  src="${obj[0].url}"
+  alt="meme"
+  class="meme-img"
+/>`;
+  memeCon.innerHTML += img;
+
+  console.log(`ID is: ${id}`);
+});
