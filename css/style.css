@@ -12,7 +12,7 @@ header {
     justify-content: space-around;
     width: 60%;
 }
-header h1 {
+.headline{
     color: red;
     text-transform: capitalize;
 }
