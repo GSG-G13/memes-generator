@@ -12,11 +12,44 @@ const fetch = (url, cb) => {
 
 fetch("https://geek-jokes.sameerkumar.website/api?format=json", (response) => {
   const joke = response.joke;
-  textJoke.textContent = joke;
+  if (textJoke != null) textJoke.textContent = joke;
 });
+
+const render = (res) => {
+  res.forEach((obj) => {
+    const card = createCard(obj, () => {
+      const url = `meme.html?id=${obj.id}`;
+      window.location.assign(url);
+    });
+    if (cards != null) cards.appendChild(card);
+  });
+};
 
 fetch("https://api.imgflip.com/get_memes", (response) => {
   const res = response.data.memes;
+  render(res);
+});
+
+const urlParams = new URLSearchParams(window.location.search);
+
+const id = urlParams.get("id");
+console.log(id);
+const filterById = (res, idd) => {
+  const filtered = res.filter((obj) => obj.id == idd);
+  return filtered;
+};
+const memeCon = document.querySelector(".meme-con");
+fetch(`https://api.imgflip.com/get_memes`, (response) => {
+  const res = response.data.memes;
+  const img = document.createElement("img");
+  const obj = filterById(res, id);
+
+  img.setAttribute("src", `${obj[0].url}`);
+  console.log(obj[0].url);
+  img.setAttribute("alt", "meme");
+  img.setAttribute("width", "500");
+  img.setAttribute("height", "500");
+  memeCon.appendChild(img);
 });
 
 const testArray = [

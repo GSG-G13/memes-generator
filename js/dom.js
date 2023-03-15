@@ -1,5 +1,5 @@
 const addListener = (selector, eventName, callback) => {
-  if (selector !== null)
+  if (document.querySelector(selector) !== null)
     document.querySelector(selector).addEventListener(eventName, callback);
 };
 
@@ -19,7 +19,6 @@ const rightTop = querySelector(".right-top");
 const rightBottom = querySelector(".right-bottom");
 const rightTopText = getElementById("right-top-text");
 const rightBottomText = getElementById("right-bottom-text");
-
 const memeContainer = querySelector(".overlay");
 const topTextElement = querySelector(".top-text");
 const bottomTextElement = querySelector(".bottom-text");
@@ -46,7 +45,7 @@ const appendChildrn = (parent, ...children) => {
   });
 };
 
-const createCard = (obj , cb) => {
+const createCard = (obj, cb) => {
   const divCard = createHtmlElement("div", "card");
   const imageContainer = createHtmlElement("div", "image-container");
   const img = createHtmlElement("img");
@@ -56,13 +55,12 @@ const createCard = (obj , cb) => {
   memeCaption.textContent = obj.name;
   const addBtn = createHtmlElement("button", "add-button");
   addBtn.textContent = "add meme";
-  addBtn.addEventListener("click" , cb)
+  addBtn.addEventListener("click", cb);
   appendChildrn(divCard, imageContainer, memeCaption, addBtn);
   return divCard;
 };
 
 const cards = document.querySelector(".cards");
-
 const obj = {
   id: "119139145",
   name: "Blank Nut Button",
@@ -73,13 +71,14 @@ const obj = {
   captions: 0,
 };
 const cb = () => {
-    console.log("Hello meme")
-}
+  console.log("Hello meme");
+};
 
-const card = createCard(obj , cb);
+const card = createCard(obj, cb);
 if (cards != null) cards.appendChild(card);
 
 addListener("#top-text", "input", () => {
+    console.log(topText.value);
   changeValue(topTextElement, topText.value);
 });
 addListener("#bottom-text", "input", () => {
