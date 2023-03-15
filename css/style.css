@@ -39,20 +39,19 @@
   z-index: 999;
 }
 
-.top-text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-  box-sizing: border-box;
+.top-text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
 }
-
 .bottom-text {
   position: absolute;
   bottom: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   text-align: center;
   padding: 10px;
@@ -61,8 +60,8 @@
 
 .right-top{
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 110px;
+  right: -174px;
   width: 100%;
   text-align: center;
   padding: 10px;
@@ -72,8 +71,8 @@
 
 .right-bottom{
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 57px;
+    right: -143px;
     width: 100%;
     text-align: center;
     padding: 10px;

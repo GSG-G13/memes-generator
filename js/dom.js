@@ -9,8 +9,8 @@ const getElementwithId = (id) => {
 
 const topText = document.getElementById("top-text");
 const bottomText = document.getElementById("bottom-text");
-const rightTop = document.querySelector('.right-top');
-const rightBottom= document.querySelector('.right-bottom')
+const rightTop = document.querySelector(".right-top");
+const rightBottom = document.querySelector(".right-bottom");
 const rightTopText = document.getElementById("right-top-text");
 const rightBottomText = document.getElementById("right-bottom-text");
 
@@ -27,14 +27,9 @@ bottomText.addEventListener("input", () => {
 });
 
 rightTopText.addEventListener("input", () => {
-  
+  rightTop.textContent = rightTopText.value;
 });
 
 rightBottomText.addEventListener("input", () => {
-  const rightBottomElement = document.createElement("div");
-  rightBottomElement.textContent = rightBottomText.value;
-  rightBottomElement.className = "bottom-text";
-  rightBottomElement.style.bottom = "20px";
-  rightBottomElement.style.right = "20px";
-  memeContainer.appendChild(rightBottomElement);
+  rightBottom.textContent = rightBottomText.value;
 });
