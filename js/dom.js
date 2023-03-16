@@ -61,22 +61,11 @@ const createCard = (obj, cb) => {
 };
 
 const cards = document.querySelector(".cards");
-const obj = {
-  id: "119139145",
-  name: "Blank Nut Button",
-  url: "https://i.imgflip.com/1yxkcp.jpg",
-  width: 600,
-  height: 446,
-  box_count: 2,
-  captions: 0,
-};
+
 const cb = () => {};
 
-const card = createCard(obj, cb);
-if (cards != null) cards.appendChild(card);
 
 addListener("#top-text", "input", () => {
-  console.log(topText.value);
   changeValue(topTextElement, topText.value);
 });
 addListener("#bottom-text", "input", () => {
