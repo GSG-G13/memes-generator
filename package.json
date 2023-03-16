@@ -1,0 +1,23 @@
+{
+  "name": "memes-generator",
+  "version": "1.0.0",
+  "description": "api project for memes and jokes",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G13/memes-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G13/memes-generator/issues"
+  },
+  "homepage": "https://github.com/GSG-G13/memes-generator#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
