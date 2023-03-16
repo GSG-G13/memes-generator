@@ -42,15 +42,14 @@ fetch(`https://api.imgflip.com/get_memes`, (response) => {
   const res = response.data.memes;
   const img = document.createElement("img");
   const obj = filterById(res, id);
-
-  img.setAttribute("src", `${obj[0].url}`);
-  img.setAttribute("alt", "meme");
-  img.setAttribute("width", "500");
-  img.setAttribute("height", "500");
-  memeCon.appendChild(img);
+  if (memeCon != null) {
+    img.setAttribute("src", `${obj[0].url}`);
+    img.setAttribute("alt", "meme");
+    img.setAttribute("width", "500");
+    img.setAttribute("height", "500");
+    memeCon.appendChild(img);
+  }
 });
-
-
 
 const searchMeme = (array, value) => {
   return array.filter((object) => {
@@ -60,17 +59,58 @@ const searchMeme = (array, value) => {
   });
 };
 
-
-
 const searchInput = document.querySelector(".search-feild");
 
-searchInput.addEventListener("input", (e) => {
-  fetch("https://api.imgflip.com/get_memes" , (res) => {
-    let array = searchMeme(res.data.memes, searchInput.value.toLowerCase());
-    while(cards.firstChild){
-      cards.firstChild.remove()
-    }
-    render(array)
-  })
-});
+if (searchInput != null) {
+  searchInput.addEventListener("input", (e) => {
+    fetch("https://api.imgflip.com/get_memes", (res) => {
+      let array = searchMeme(res.data.memes, searchInput.value.toLowerCase());
+      while (cards.firstChild) {
+        cards.firstChild.remove();
+      }
+      render(array);
+    });
+  });
+}
 
+const overlay = document.querySelector(".overlay");
+let activeElement = null;
+let initialX = 0;
+let initialY = 0;
+let currentX = 0;
+let currentY = 0;
+let xOffset = 0;
+let yOffset = 0;
+if (overlay != null) {
+  overlay.addEventListener("mousedown", startDrag);
+  overlay.addEventListener("mouseup", endDrag);
+  overlay.addEventListener("mousemove", drag);
+}
+function startDrag(event) {
+  activeElement = event.target;
+  initialX = event.clientX - xOffset;
+  initialY = event.clientY - yOffset;
+  if (activeElement !== null) {
+    activeElement.style.cursor = "move";
+  }
+}
+
+function endDrag(event) {
+  initialX = currentX;
+  initialY = currentY;
+  activeElement.style.cursor = "default";
+  activeElement = null;
+}
+
+function drag(event) {
+  if (activeElement !== null) {
+    event.preventDefault();
+    currentX = event.clientX - initialX;
+    currentY = event.clientY - initialY;
+
+    xOffset = currentX;
+    yOffset = currentY;
+
+    activeElement.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+  }
+}

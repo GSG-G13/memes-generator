@@ -18,7 +18,6 @@
   z-index: 99;
   color: #ddd;
   font-size: 36px;
-  text-shadow: 2px 2px black;
 }
 
 .meme-img {
@@ -33,7 +32,6 @@
   position: absolute;
   color: rgb(102, 101, 101);
   font-size: 36px;
-  text-shadow: 2px 2px black;
   top: 0;
   left: 0;
   z-index: 999;
@@ -44,6 +42,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  height: 200px;
   text-align: center;
   padding: 10px;
   box-sizing: border-box;
@@ -53,6 +52,7 @@
   bottom: 0;
   right: 0;
   width: 100%;
+  height: 200px;
   text-align: center;
   padding: 10px;
   box-sizing: border-box;
@@ -164,4 +164,13 @@ section .search-input .search-btn i {
 
 .add-button:hover {
     background-color: #0069d9;
+}
+
+
+.meme-con {
+  position: relative;
+}
+
+.text {
+  position: absolute;
 }

@@ -39,7 +39,7 @@ const createHtmlElement = (el, className, id) => {
   return ele;
 };
 
-const appendChildrn = (parent, ...children) => {
+const appendChildren = (parent, ...children) => {
   children.forEach((child) => {
     parent.appendChild(child);
   });
@@ -56,7 +56,7 @@ const createCard = (obj, cb) => {
   const addBtn = createHtmlElement("button", "add-button");
   addBtn.textContent = "add meme";
   addBtn.addEventListener("click", cb);
-  appendChildrn(divCard, imageContainer, memeCaption, addBtn);
+  appendChildren(divCard, imageContainer, memeCaption, addBtn);
   return divCard;
 };
 
@@ -71,9 +71,12 @@ addListener("#top-text", "input", () => {
 addListener("#bottom-text", "input", () => {
   changeValue(bottomTextElement, bottomText.value);
 });
-addListener("#right-top-text", "input", () => {
-  changeValue(rightTop, rightTopText.value);
-});
-addListener("#right-bottom-text", "input", () => {
-  changeValue(rightBottom, rightBottomText.value);
+
+const colorPicker = document.getElementById('color-picker');
+
+
+if(colorPicker != null)colorPicker.addEventListener('input', function() {
+  const color = colorPicker.value;
+  topTextElement.style.color = color;
+  bottomTextElement.style.color = color;
 });
