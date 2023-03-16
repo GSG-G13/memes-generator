@@ -39,7 +39,7 @@ const createHtmlElement = (el, className, id) => {
   return ele;
 };
 
-const appendChildrn = (parent, ...children) => {
+const appendChildren = (parent, ...children) => {
   children.forEach((child) => {
     parent.appendChild(child);
   });
@@ -56,7 +56,7 @@ const createCard = (obj, cb) => {
   const addBtn = createHtmlElement("button", "add-button");
   addBtn.textContent = "add meme";
   addBtn.addEventListener("click", cb);
-  appendChildrn(divCard, imageContainer, memeCaption, addBtn);
+  appendChildren(divCard, imageContainer, memeCaption, addBtn);
   return divCard;
 };
 
