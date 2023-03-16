@@ -4,9 +4,9 @@ api project for memes and jokes
 
 <!-- cenete image in the middle -->
 <p align="center">
-  <img src="https://i.gifer.com/Af6V.gif" width="100%" height="100%">
+  <img src="https://media.giphy.com/media/THlB4bsoSA0Cc/giphy.gif" width="300px" height="300px">
 </p>
-
+ 
 # User Stories
 
 - As a meme lover, I want to be able to create my own custom memes by adding top and bottom text to a meme image.
