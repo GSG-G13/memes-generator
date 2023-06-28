@@ -28,15 +28,15 @@ const changeValue = (element, text) => {
   element.textContent = text;
 };
 
-const createHtmlElement = (el, className, id) => {
-  const ele = document.createElement(el);
+const createHtmlElement = (element, className, id) => {
+  const HTMLElement = document.createElement(element);
   if (className) {
-    ele.className = className;
+    HTMLElement.className = className;
   }
   if (id) {
-    ele.id = id;
+    HTMLElement.id = id;
   }
-  return ele;
+  return HTMLElement;
 };
 
 const appendChildren = (parent, ...children) => {
