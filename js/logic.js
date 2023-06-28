@@ -6,11 +6,11 @@ const fetch = (url, cb) => {
       cb(response);
     }
   };
-  xhr.open("GET", url, true);
+  xhr.open('GET', url, true);
   xhr.send();
 };
 
-fetch("https://geek-jokes.sameerkumar.website/api?format=json", (response) => {
+fetch('https://geek-jokes.sameerkumar.website/api?format=json', (response) => {
   const joke = response.joke;
   if (textJoke != null) textJoke.textContent = joke;
 });
@@ -25,28 +25,28 @@ const render = (res) => {
   });
 };
 
-fetch("https://api.imgflip.com/get_memes", (response) => {
+fetch('https://api.imgflip.com/get_memes', (response) => {
   const res = response.data.memes;
   render(res);
 });
 
 const urlParams = new URLSearchParams(window.location.search);
 
-const id = urlParams.get("id");
+const id = urlParams.get('id');
 const filterById = (res, idd) => {
   const filtered = res.filter((obj) => obj.id == idd);
   return filtered;
 };
-const memeCon = document.querySelector(".meme-con");
+const memeCon = document.querySelector('.meme-con');
 fetch(`https://api.imgflip.com/get_memes`, (response) => {
   const res = response.data.memes;
-  const img = document.createElement("img");
+  const img = document.createElement('img');
   const obj = filterById(res, id);
   if (memeCon != null) {
-    img.setAttribute("src", `${obj[0].url}`);
-    img.setAttribute("alt", "meme");
-    img.setAttribute("width", "500");
-    img.setAttribute("height", "500");
+    img.setAttribute('src', `${obj[0].url}`);
+    img.setAttribute('alt', 'meme');
+    img.setAttribute('width', '500');
+    img.setAttribute('height', '500');
     memeCon.appendChild(img);
   }
 });
@@ -59,11 +59,11 @@ const searchMeme = (array, value) => {
   });
 };
 
-const searchInput = document.querySelector(".search-feild");
+const searchInput = document.querySelector('.search-feild');
 
 if (searchInput != null) {
-  searchInput.addEventListener("input", (e) => {
-    fetch("https://api.imgflip.com/get_memes", (res) => {
+  searchInput.addEventListener('input', (e) => {
+    fetch('https://api.imgflip.com/get_memes', (res) => {
       let array = searchMeme(res.data.memes, searchInput.value.toLowerCase());
       while (cards.firstChild) {
         cards.firstChild.remove();
@@ -73,7 +73,7 @@ if (searchInput != null) {
   });
 }
 
-const overlay = document.querySelector(".overlay");
+const overlay = document.querySelector('.overlay');
 let activeElement = null;
 let initialX = 0;
 let initialY = 0;
@@ -82,25 +82,25 @@ let currentY = 0;
 let xOffset = 0;
 let yOffset = 0;
 if (overlay != null) {
-  overlay.addEventListener("mousedown", startDrag);
-  overlay.addEventListener("mouseup", endDrag);
-  overlay.addEventListener("mousemove", drag);
+  overlay.addEventListener('mousedown', startDrag);
+  overlay.addEventListener('mouseup', endDrag);
+  overlay.addEventListener('mousemove', drag);
 }
-function startDrag(event) {
+const startDrag = (event) => {
   activeElement = event.target;
   initialX = event.clientX - xOffset;
   initialY = event.clientY - yOffset;
   if (activeElement !== null) {
-    activeElement.style.cursor = "move";
+    activeElement.style.cursor = 'move';
   }
-}
+};
 
-function endDrag(event) {
+const endDrag = () => {
   initialX = currentX;
   initialY = currentY;
-  activeElement.style.cursor = "default";
+  activeElement.style.cursor = 'default';
   activeElement = null;
-}
+};
 
 function drag(event) {
   if (activeElement !== null) {
